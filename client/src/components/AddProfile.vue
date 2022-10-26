@@ -21,13 +21,13 @@
 			/>
 
 			<label for="bio">Bio</label>
-			<input
-				type="text"
+			<!-- use text area  -->
+			<textarea
 				class="form-control"
 				id="bio"
 				v-model="bio"
 				placeholder="Enter bio"
-			/>
+			></textarea>
 
 			<button type="submit" class="btn btn-primary" @click="saveProfile">
 				Submit
