@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import profileRoute from "./route/profile.js"
+import cors from "cors";
 
 const app = express()
 
@@ -11,11 +12,11 @@ mongoose.connect(`mongodb://localhost/personalProfile`).then(() => {
   process.exit()
 })
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
-app.use(express.static("public"))
 
-app.use("/api/profile", profileRoute )
+app.use("/api/profiles", profileRoute )
 
 
 app.listen(3000, ()=> {

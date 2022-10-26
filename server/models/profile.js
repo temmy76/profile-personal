@@ -6,16 +6,12 @@ const profileSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  firstname: {
+  fullname: {
     type: String,
     required: true,
   },
-  lastname:{
+  bio: {
     type: String,
-    required: true,
-  },
-  age: {
-    type: Number,
     required: true,
   },
 })

@@ -1,17 +1,24 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import AboutView from "../views/AboutView.vue";
+import Home from "../views/Home.vue";
+import Details from "../views/Details.vue";
+import CreateProfile from "../views/CreateProfile.vue"
 
 const routes = [
 	{
 		path: "/",
-		name: "home",
-		component: HomeView,
+		name: "Home",
+		component: Home,
 	},
 	{
-		path: "/about",
-		name: "about",
-		component: AboutView,
+		path: "/details/:id",
+		name: "ProfileDetails",
+		component: Details,
+		props: true,
+	},
+	{
+		path: "/create-profile",
+		name: "CreateProfile",
+		component: CreateProfile,
 	},
 ];
 

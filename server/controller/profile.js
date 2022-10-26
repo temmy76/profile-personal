@@ -9,19 +9,39 @@ export default {
 	getAll: async (req, res) => {
 		try {
 			const profile = await Profile.find();
-			res.status(200).json(profile);
+			res.status(200).json({
+        data: profile
+      });
 		} catch (error) {
 			res.status(500).json({
 				message: error,
 			});
 		}
 	},
+  seeProfile: async(req,res) => {
+    const id = req.params.id
+    try {
+      const profile = await Profile.findById(id)
+      if(!profile) {
+        res.status(400).json({
+          message: "Profile not Found"
+        })
+        return;
+      }
+      res.status(200).json({
+        data: profile,
+      })
+    }catch(error) {
+      res.status(500).json({
+        message: "Server Error " + error,
+      })
+    }
+  },
 	addProfile: async (req, res) => {
 		const profile = new Profile({
 			username: req.body.username,
-			firstname: req.body.firstname,
-			lastname: req.body.lastname,
-			age: req.body.age,
+			fullname: req.body.fullname,
+			bio: req.body.bio,
 		});
 
 		try {
@@ -37,12 +57,11 @@ export default {
 	},
 	updateProfile: async (req, res) => {
 		try {
-			const { username, firstname, lastname, age } = req.body;
+			const { username, fullname, bio } = req.body;
 			const profile = await Profile.findById(req.params.id);
 			profile.username = username;
-			profile.firstname = firstname;
-			profile.lastname = lastname;
-			profile.age = age;
+			profile.fullname = fullname;
+			profile.bio = bio;
 			const updateProfile = await profile.save();
 			res.status(202).json({
 				data: updateProfile,
