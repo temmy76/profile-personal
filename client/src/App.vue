@@ -1,5 +1,5 @@
 <template>
-	<nav class="d-flex justify-content-center">
+	<nav class="d-flex justify-content-evenly">
 		<router-link to="/">Home</router-link>
 		<router-link to="/create-profile">Create Profile</router-link>
 	</nav>

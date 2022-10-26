@@ -10,11 +10,15 @@
 								@{{ profile.username }}
 							</h6>
 							<p class="card-text">{{ profile.bio.substring(0, 100) }} ....</p>
-							<a href="#" class="card-link"></a>
 							<router-link
 								class="card-link btn btn-primary"
 								:to="{ name: 'ProfileDetails', params: { id: profile._id } }"
 								>See Details</router-link
+							>
+							<router-link
+								class="card-link btn btn-warning"
+								:to="{ name: 'EditProfile', params: { id: profile._id } }"
+								>Edit</router-link
 							>
 							<a
 								class="card-link btn btn-danger"

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Details from "../views/Details.vue";
-import CreateProfile from "../views/CreateProfile.vue";
+import CreateProfile from "../views/Create.vue";
+import Edit from "../views/Edit.vue";
 
 const routes = [
 	{
@@ -19,6 +20,11 @@ const routes = [
 		path: "/create-profile",
 		name: "CreateProfile",
 		component: CreateProfile,
+	},
+	{
+		path: "/edit-profile/:id",
+		name: "EditProfile",
+		component: Edit,
 	},
 ];
 
